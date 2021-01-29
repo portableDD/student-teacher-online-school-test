@@ -43,21 +43,21 @@ class studentRegister extends Component {
   handleclassChange = (e) => {
    this.setState({studentClass: e.target.value})
   }
- 
- 
-  handleSubmit = async(e) => {
+
+
+  handleSubmit = async (e) => {
     this.setState({
-        loading: true
+      loading: true
     })
     e.preventDefault()
     try {
-      const resposne  = await axios.post(`${BASE_URL}${STUDENT_REG}`, {
-          email: this.state.email,
-          password: this.state.password,
-          name: this.state.studentName,
-          phone: this.state.phone,
-          age: this.state.age,
-          studentClass: this.state.studentClass
+      const resposne = await axios.post(`${BASE_URL}${STUDENT_REG}`, {
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.studentName,
+        phone: this.state.phone,
+        age: this.state.age,
+        studentClass: this.state.studentClass
       });
       if (resposne.status === 200) {
         alert("register successful");
@@ -72,12 +72,14 @@ class studentRegister extends Component {
       })
       }
     } catch (error) {
-        alert(error)
-        this.setState({
-            loading: false
-        })
+      alert(error)
+      this.setState({
+        loading: false
+      })
     }
-}
+    alert('form submitted proceed to login')
+  }
+
 
   render() {
     return (

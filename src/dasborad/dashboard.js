@@ -103,7 +103,7 @@ export default class dashborad extends Component {
 											Daily Attendance
 										</NavDropdown.Item>
 									</NavDropdown>
-									<Nav.Link href='#' id='display' onClick={this.handleDisplay}>
+									<Nav.Link href='#student' id='display' onClick={this.handleDisplay}>
 										Student
 									</Nav.Link>
 								</Nav>
@@ -118,7 +118,7 @@ export default class dashborad extends Component {
 								<h6 className='pt-2 pl-3'>Phone Number: {this.state.phonen}</h6>
 								<h6 className='pt-2 pl-3 pb-2'>Email Address: {this.state.email}</h6>
 							</div>
-							<div id='addProductSection'>
+							<div id='addProductSection' style={{visibility:'hidden'}}>
 								<h3>Daily Attendance</h3>
 								<Table striped bordered hover>
 									<thead>
@@ -203,7 +203,10 @@ export default class dashborad extends Component {
 										</tr>
 									</tbody>
 								</Table>
-							</div>
+              </div>
+              <div id="student">
+
+              </div>
 						</Col>
 					</Row>
 				</Container>
