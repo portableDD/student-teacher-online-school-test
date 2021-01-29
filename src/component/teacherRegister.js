@@ -6,43 +6,70 @@ import Container from 'react-bootstrap/Container'
 import './all.css'
 
 class teacherRegister extends Component {
-  state = {
+   state = {
+    name: '',
+    assignedClass: '',
+    age: '',
+    phone: '',
+    email: '',
+    password:''
+  }
 
-   }
+  handleNameChange = (e) => {
+     this.setState({name: e.target.value})
+  }
+  handleClassChange = (e) => {
+    this.setState({studentClass: e.target.value})
+  }
+  handleAgeChange = (e) => {
+    this.setState({age: e.target.value})
+  }
+  handlePhoneChange = (e) => {
+     this.setState({Phone: e.target.value})
+  }
+  handleEmailChange = (e) => {
+        this.setState({email: e.target.value})
+    }
+    handlePasswordChange = (e) => {
+        this.setState({password: e.target.value})
+    }
+  handleSubmit = () => {
+  this.props.history.push('/Dashboard')
+}
   render() {
     return (
       <div  className="brave">
             <Container className="pt-3">
                 <Col md={{ span: 6, offset: 3 }}>
-                      <Form className=" shy">
+                      <Form className=" shy" onSubmit={this.handleSubmit}>
                             <Form.Group id="namel">
                               <Form.Label className="text-white">Teacher's Name</Form.Label>
-                              <Form.Control type="text" placeholder="Enter name" />
+                              <Form.Control type="text" placeholder="Enter name" onChange={this.handleNameChange} />
                             </Form.Group>
 
                             <Form.Group id="assignedclass">
                               <Form.Label className="text-white">Teacher's class</Form.Label>
-                              <Form.Control type="text" placeholder="Enter class" />
+                              <Form.Control type="text" placeholder="Enter class" onChange={this.handleClassChange} />
                             </Form.Group>
 
                             <Form.Group  id="phone">
                               <Form.Label className="text-white">Phone Number</Form.Label>
-                              <Form.Control placeholder="Enter Phone number" />
+                              <Form.Control placeholder="Enter Phone number" onChange={this.handlePhoneChange} />
                             </Form.Group>
 
                              <Form.Group  id="age">
                               <Form.Label className="text-white">Age</Form.Label>
-                              <Form.Control placeholder="Enter your Age" />
+                              <Form.Control placeholder="Enter your Age" onChange={this.handleAgeChange} />
                             </Form.Group>
 
                             <Form.Group  id="email">
                               <Form.Label className="text-white">Email</Form.Label>
-                              <Form.Control type="email" placeholder="Enter email"/>
+                              <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} />
                             </Form.Group>
 
                             <Form.Group  id="password">
                               <Form.Label className="text-white">Password</Form.Label>
-                              <Form.Control type="password" placeholder="password" />
+                              <Form.Control type="password" placeholder="password" onChange={this.handlePasswordChange} />
                             </Form.Group>
 
                           <Button variant="primary" type="submit" className="ade">
