@@ -45,6 +45,7 @@ class teacherRegister extends Component {
 
 
   handleSubmit = async(e) => {
+    e.preventDefault()
     this.setState({
         loading: true
     })
@@ -59,8 +60,11 @@ class teacherRegister extends Component {
           assignedclass: this.state.assignedclass
       });
       if (resposne.status === 200) {
-        alert("register successful");
-          // this.props.history.push('/dashboard')
+        // alert("register successful");
+        this.props.history.push('./dashboard/dashboard')
+        this.setState({
+          loading: false
+        })
       }
     } catch (error) {
         alert(error)
@@ -108,7 +112,7 @@ class teacherRegister extends Component {
                             </Form.Group>
 
                           <Button variant="primary" type="submit" className="ade">
-                          <CircularProgress visible = {this.state.loading}/>
+                          {this.state.loading && <CircularProgress size={20} color={"white"}/>}  
                             Submit
                           </Button>
                     </Form>
