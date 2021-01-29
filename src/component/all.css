@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,700&display=swap');
+
+p {
+  font-family: 'Fraunces', serif;
+}
+.ade{
+    position: relative;
+  left: 40%;
+}
+.brave{
+    background-image:  url('../pics/home7.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+.king{
+   background-image:  url('../pics/home3.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+.shy{
+
+  font-family: 'Fraunces', serif;
+}
+.broomstick{
+   font-family: 'Fraunces', serif;
+}
+.broom{
+  position: relative;
+  left: 40%;
+}
+.stew{
+  font-family: 'Crimson Text', serif;
+}
+.stewed{
+  font-size: large;
+}
+.high{
+  font-family: 'Londrina Solid', cursive;
+}
+
+@media screen and (max-width: 980px){
+  .ade{
+    position: relative;
+  left: 35%;
+  }
+}
