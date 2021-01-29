@@ -60,7 +60,7 @@ class studentRegister extends Component {
         age: this.state.age,
         studentClass: this.state.studentClass
       });
-      if (resposne.status == 200) {
+      if (resposne.status === 200) {
         alert("register successful");
         // this.props.history.push('/dashboard')
       }

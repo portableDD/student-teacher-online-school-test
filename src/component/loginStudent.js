@@ -33,7 +33,7 @@ export default class studentLogin extends Component {
               email: this.state.email,
               password: this.state.password
           });
-          if (resposne.status == 200) {
+          if (resposne.status === 200) {
               alert("You have successfully locked in");
           }
         } catch (error) {
