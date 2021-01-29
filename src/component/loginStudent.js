@@ -35,6 +35,9 @@ export default class studentLogin extends Component {
           });
           if (resposne.status == 200) {
               alert("You have successfully locked in");
+              this.setState({
+                loading: false
+            })
           }
         } catch (error) {
             alert(error)
@@ -59,7 +62,7 @@ export default class studentLogin extends Component {
                         <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit" className="broom">
-                    <CircularProgress />
+                    {this.state.loading && <CircularProgress size={30}/>}  
                       Login
                     </Button>
                     <Form.Text className="text-dark text-center stew" >

@@ -62,7 +62,15 @@ class studentRegister extends Component {
       });
       if (resposne.status == 200) {
         alert("register successful");
+        this.setState({
+          loading: false
+      })
           // this.props.history.push('/dashboard')
+      } else {
+        alert(resposne.data['error']);
+        this.setState({
+          loading: false
+      })
       }
     } catch (error) {
         alert(error)
@@ -78,7 +86,7 @@ class studentRegister extends Component {
         <Container className="pt-3">
           <Col md={{ span: 6, offset: 3 }}>
                 <Form className=" shy">
-                    <Form.Group  id="name"> onSubmit= {this.handleSubmit}
+                    <Form.Group  id="name" onSubmit= {this.handleSubmit}>
                       <Form.Label className="text-white">Student's Name</Form.Label >
                       <Form.Control type="text" placeholder="Enter name" onChange={this.handleNameChange}/>
                     </Form.Group>
@@ -109,7 +117,7 @@ class studentRegister extends Component {
                     </Form.Group>
 
                   <Button variant="primary" type="submit" className="ade">
-                  <CircularProgress visible = {this.state.loading}/>
+                  {this.state.loading && <CircularProgress size={30}/>}  
                     Submit
                   </Button>
               </Form>

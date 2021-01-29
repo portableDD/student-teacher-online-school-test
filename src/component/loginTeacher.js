@@ -33,7 +33,7 @@ export default class teacherLogin extends Component {
               password: this.state.password
           });
           if (resposne.status == 200) {
-              this.props.history.push('/dashboard')
+              this.props.history.push('./dashboard/dashboard')
           }
         } catch (error) {
             alert(error)
@@ -58,7 +58,7 @@ export default class teacherLogin extends Component {
                         <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit" className="broom">
-                    <CircularProgress/>
+                    {this.state.loading && <CircularProgress size={30}/>}  
                      Login
                     </Button>
                     <Form.Text className="text-dark text-center stew" >
