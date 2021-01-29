@@ -4,7 +4,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col"
 import { NavLink } from 'react-router-dom'
-import './all.css'
+import './all.css';
+import axios from 'axios';
+import { TEACHER_LOGIN, BASE_URL } from './../url';
 
 
 export default class teacherLogin extends Component {
@@ -19,30 +21,32 @@ export default class teacherLogin extends Component {
     handlePasswordChange = (e) => {
         this.setState({password: e.target.value})
     }
-    // handleSubmit = async(e) => {
-    //     this.setState({
-    //         loading: true
-    //     })
-    //     e.preventDefault()
-    //     try {
-    //      await auth.signInWithEmailAndPassword(this.state.email,this.state.password)
-    //     this.props.history.push('/shop')
-    //     } catch (error) {
-    //         alert(error)
-    //         this.setState({
-    //             loading: false
-    //         })
-    //     }
-    // }
+    handleSubmit = async(e) => {
+        this.setState({
+            loading: true
+        })
+        e.preventDefault()
+        try {
+          const resposne  = await axios.post(`${BASE_URL}${TEACHER_LOGIN}`, {
+              email: this.state.email,
+              password: this.state.password
+          });
+          if (resposne.status == 200) {
+              this.props.history.push('/dashboard')
+          }
+        } catch (error) {
+            alert(error)
+            this.setState({
+                loading: false
+            })
+        }
+    }
     render() {
         return (
           <div className="king">
                <Container className="pt-5">
-                {/* <div>
-                <Spinner size={120} spinnerColor={"#333"} spinnerWidth={2} visible={this.state.loading} />
-                </div> */}
                 <Col md={{ span: 6, offset: 3 }}  className="broomstick">
-                <Form  >
+                <Form onSubmit= {this.handleSubmit} >
                     <Form.Group id="Email">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange}/>
@@ -53,7 +57,8 @@ export default class teacherLogin extends Component {
                         <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit" className="broom">
-                        Log in
+                    <Spinner animation="border" role="status" visible = {this.state.loading}> <span className="sr-only">Loading...</span></Spinner>
+                     Login
                     </Button>
                     <Form.Text className="text-dark text-center stew" >
                         Don't have an account? <NavLink to="/RegisterTeacher" className="stewed text-dark">Sign up</NavLink>
