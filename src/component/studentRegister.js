@@ -34,7 +34,7 @@ class studentRegister extends Component {
         this.setState({password: e.target.value})
     }
 handleSubmit = () => {
-  this.props.history.push('/Dashboard')
+  alert('form submitted proceed to login')
 }
 
   render() {
