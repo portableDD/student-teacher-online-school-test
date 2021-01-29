@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col"
 import { NavLink } from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './all.css';
 import axios from 'axios';
 import { TEACHER_LOGIN, BASE_URL } from './../url';
@@ -57,7 +58,7 @@ export default class teacherLogin extends Component {
                         <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit" className="broom">
-                    <Spinner animation="border" role="status" visible = {this.state.loading}> <span className="sr-only">Loading...</span></Spinner>
+                    <CircularProgress/>
                      Login
                     </Button>
                     <Form.Text className="text-dark text-center stew" >

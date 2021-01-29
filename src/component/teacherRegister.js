@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col"
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './all.css'
 import axios from 'axios';
 import { BASE_URL, TEACHER_REG } from './../url';
@@ -108,7 +109,7 @@ class teacherRegister extends Component {
                             </Form.Group>
 
                           <Button variant="primary" type="submit" className="ade">
-                          <Spinner animation="border" role="status" visible = {this.state.loading}> <span className="sr-only">Loading...</span></Spinner>
+                          <CircularProgress visible = {this.state.loading}/>
                             Submit
                           </Button>
                     </Form>
