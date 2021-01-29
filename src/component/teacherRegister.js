@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button'
 import Col from "react-bootstrap/Col"
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
-import Spinner from 'react-bootstrap/Spinner'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './all.css'
 import axios from 'axios';
@@ -60,7 +59,7 @@ class teacherRegister extends Component {
           age: this.state.age,
           assignedclass: this.state.assignedclass
       });
-      if (resposne.status == 200) {
+      if (resposne.status === 200) {
         // alert("register successful");
         this.props.history.push('./dashboard/dashboard')
         this.setState({
@@ -113,7 +112,7 @@ class teacherRegister extends Component {
                             </Form.Group>
 
                           <Button variant="primary" type="submit" className="ade">
-                          {this.state.loading && <CircularProgress size={30}/>}  
+                          {this.state.loading && <CircularProgress size={20} color={"white"}/>}  
                             Submit
                           </Button>
                     </Form>
