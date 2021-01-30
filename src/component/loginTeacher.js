@@ -11,11 +11,15 @@ import { TEACHER_LOGIN, BASE_URL } from './../url';
 
 
 export default class teacherLogin extends Component {
-    state = {
-        email: '',
-        password: '',
-        loading: false
+    constructor(props){
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            loading: false
+        }
     }
+    
     handleEmailChange = (e) => {
         this.setState({email: e.target.value})
     }
@@ -33,7 +37,8 @@ export default class teacherLogin extends Component {
               password: this.state.password
           });
           if (resposne.status === 200) {
-              this.props.history.push('./dashboard/dashboard')
+             
+              this.props.history.push('./dashboard/dashboard');
           }
         } catch (error) {
             alert(error)
